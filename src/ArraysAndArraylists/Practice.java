@@ -9,8 +9,9 @@ import java.util.Scanner;
 
 public class Practice {
     public static void main(String[] args) {
-        int a = 11, b = 4, c = 3;
-//        c = !!a;
+        char ch = '2';
+        int pos = (int) ch - '0';
+        System.out.println(pos);
 
     }
 }
