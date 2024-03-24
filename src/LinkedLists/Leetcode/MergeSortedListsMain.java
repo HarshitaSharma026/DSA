@@ -7,6 +7,7 @@ public class MergeSortedListsMain {
         first.insertLast(1);
         first.insertLast(2);
         first.insertLast(4);
+        first.insertLast(10);
 
 
     }
