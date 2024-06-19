@@ -10,7 +10,7 @@ public class FindSqrt {
         System.out.println(Math.sqrt(2147395600));
     }
 
-    // O(log n) complexity
+    // ---------------------------------- O(log n) complexity (if i want in decimal notation)
     static double sqrt1(int n, int p) {
         int s = 0;
         int e = n;
@@ -36,8 +36,8 @@ public class FindSqrt {
             while (root * root <= n) {
                 root += incr;
             }
-            // it came ou
-            // t of the loop beacuse the root gets bigger from n,
+            // it came out
+            // of the loop beacuse the root gets bigger from n,
             // so we need to subtract by 1 to get the root
             root -= incr;
             // increase the increment upto next decimal place
@@ -59,6 +59,24 @@ public class FindSqrt {
             x = root;
         }
         return root;
+    }
+
+//    ----------------------- ANOTHER DIRECT METHOD TO GET SQRT OF A NUMBER ROUND TO NEAREST INTEGER
+    static int sqrt3(int n) {
+        int start = 1;
+        int end = n;
+        int result = 0;
+        while(start <= end) {
+            int mid = start + (end - start) / 2;
+            if (mid * mid <= n) {
+                result = mid;
+                start = mid + 1;
+            }
+            else {
+                end = mid - 1;
+            }
+        }
+        return result;
     }
 
 }

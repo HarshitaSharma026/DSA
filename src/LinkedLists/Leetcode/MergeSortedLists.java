@@ -3,52 +3,24 @@ package LinkedLists.Leetcode;
 import LinkedLists.SinglyLL;
 
 public class MergeSortedLists {
-    Node head;
-    Node tail;
 
-    class Node {
-        int data;
-        Node next;
-
-        public Node(int data) {
-            this.data = data;
+//    MERGE TWO SORTED LISTS
+    public NodeDef.ListNode merge(NodeDef.ListNode head1, NodeDef.ListNode head2) {
+        NodeDef.ListNode dummy = new NodeDef.ListNode();
+        NodeDef.ListNode tail = dummy;
+        while (head1 != null && head2 != null) {
+            if (head1.data < head2.data) {
+                tail.next = head1;
+                tail = tail.next;
+                head1 = head1.next;
+            }
+            else {
+                tail.next = head2;
+                tail = tail.next;
+                head2 = head2.next;
+            }
         }
-
-        public Node(int data, Node next) {
-            this.data = data;
-            this.next = next;
-        }
-    }
-
-    // ----------- INSERT FIRST
-    public void insertFirst(int data) {
-
-        Node newnode = new Node(data);
-        newnode.next = head;
-        head = newnode;
-
-        if (tail == null) {
-            tail = head;
-        }
-        System.out.println(data + " inserted at first");
-    }
-
-    // ------------- INSERT LAST
-    public void insertLast(int data) {
-        Node newnode = new Node(data);
-        if (tail == null) {
-            insertFirst(data);
-        }
-
-        tail.next = newnode;
-        newnode.next = null;
-    }
-
-    // ---------------- DISPLAY
-    public void display() {
-        Node temp = head;
-        while (temp != null) {
-            System.out.print(temp.data + " -> ");
-        }
+        tail.next = (head1 != null) ? head1 : head2;
+        return dummy.next;
     }
 }

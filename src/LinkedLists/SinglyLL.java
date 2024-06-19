@@ -22,7 +22,6 @@ public class SinglyLL {
 
 //    ---------------------- INSERT AT FIRST
     public void insertFirst(int data) {
-
         Node newnode = new Node(data);
         newnode.next = head;
         head = newnode;
